@@ -9,9 +9,14 @@
 	#endif
 #endif
 
-/* Marco Database System 1.0.1 */
+print("Marco Database System 1.0.1");
 
 stock marcdb_remove(filename[])
 {
          return fremove(filename);
+}
+
+stock marcdb_exists(filename[])
+{
+          return fexist(filename);
 }
