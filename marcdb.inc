@@ -9,7 +9,7 @@
 	#endif
 #endif
 
-print("Marco Database System 1.0.1");
+/* Marco Database System Include */
 
 stock marcdb_remove(filename[])
 {
