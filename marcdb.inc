@@ -20,3 +20,16 @@ stock marcdb_exists(filename[])
 {
           return fexist(filename);
 }
+
+stock marcdb_create(filename[])
+{
+          if(marcdb_exists(filename)) return 0;
+          new File:fn;
+          fn = fopen(filename, io_write);
+          if(fn))
+          {
+                    fclose(fn);
+                    return 1;
+          }
+          return 0;
+}
