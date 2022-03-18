@@ -8,3 +8,10 @@
 		#error could not locate a_samp.inc file
 	#endif
 #endif
+
+/* Marco Database System 1.0.1 */
+
+stock marcdb_remove(filename[])
+{
+         return fremove(filename);
+}
