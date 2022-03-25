@@ -33,3 +33,16 @@ stock marcdb_create(filename[])
           }
           return 0;
 }
+
+stock marcdb_writechar(filename[])
+{
+          new File:fn;
+          fn = fopen(filename, io_write)
+          if(fn))
+          {
+                    fputchar(fn, 'e', false);
+                    fclose(fn);
+                    return 1
+          }
+          return 0;
+}
