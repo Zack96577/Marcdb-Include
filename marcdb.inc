@@ -26,7 +26,7 @@ stock marcdb_create(filename[])
           if(marcdb_exists(filename)) return 0;
           new File:fn;
           fn = fopen(filename, io_write);
-          if(fn))
+          if(fn)
           {
                     fclose(fn);
                     return 1;
@@ -34,15 +34,28 @@ stock marcdb_create(filename[])
           return 0;
 }
 
-stock marcdb_writechar(filename[], text[])
+stock marcdb_writechar(filename[], char[])
 {
           new File:fn;
-          fn = fopen(filename, io_write)
-          if(fn))
+          fn = fopen(filename, io_write);
+          if(fn)
           {
-                    fputchar(fn, text, false);
+                    fputchar(fn, char, false);
                     fclose(fn);
                     return 1;
           }
+          return 0;
+}
+
+stock marcdb_writeString(filename[], text[])
+{
+          new File:fn;
+	  fn = open(filename, io_write);
+	  if(fn)
+	  {
+	            fwrite(fn, text[]);
+		    fclose(fn);
+	            return 1;
+	  }
           return 0;
 }
