@@ -42,7 +42,7 @@ stock marcdb_writechar(filename[], text[])
           {
                     fputchar(fn, text, false);
                     fclose(fn);
-                    return 1
+                    return 1;
           }
           return 0;
 }
