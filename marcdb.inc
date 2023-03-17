@@ -13,25 +13,51 @@
 
 stock marcdb_remove(filename[])
 {
-         return fremove(filename);
+        return fremove(filename);
 }
 
 stock marcdb_exists(filename[])
 {
-          return fexist(filename);
+        return fexist(filename);
 }
 
 stock marcdb_create(filename[])
 {
-          if(marcdb_exists(filename)) return 0;
-          new File:fn;
-          fn = fopen(filename, io_write);
-          if(fn)
-          {
-                    fclose(fn);
-                    return 1;
-          }
-          return 0;
+        if(marcdb_exists(filename)) return 0;
+        new File:mfile;
+        mfile = fopen(filename, io_write);
+        if(mfile)
+        {
+                fclose(mfile);
+                return 1;
+        }
+        return 0;
+}
+
+stock marcdb_writechar(filename[], character[])
+{
+        new File:mfile;
+        mfile = fopen(filename, io_write);
+        if(mfile)
+        {
+                fputchar(mfile, character, false);
+                fclose(mfile);
+                return 1;
+        }
+        return 0;
+}
+
+stock marcdb_writeString(filename[], text[])
+{
+        new File:mfile;
+	    mfile = open(filename, io_write);
+	    if(mfile)
+	    {
+	        fwrite(mfile, text[]);
+		    fclose(mfile);
+	        return 1;
+	    }
+        return 0;
 }
 
 stock marcdb_writechar(filename[], char[])
